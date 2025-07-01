@@ -93,7 +93,7 @@ services:
       - n8n_encryption_key
       - n8n_user_management_jwt_secret
     depends_on:
-      - postgres
+      - n8n_postgres
 
 secrets:
   n8n_db_password:

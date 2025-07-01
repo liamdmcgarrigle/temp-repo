@@ -16,6 +16,7 @@
         "url": "https://github.com/liamdmcgarrigle/temp-repo",
         "stackfile": "n8n-stack.yaml"
       },
+      "note":"**Configuration Guide:**<br/><br/>📋 <b>Required Settings:</b> You must provide a root password below.<br/>🔧 <b>Optional Settings:</b> Database name and user credentials can be customized or left as defaults.<br/><br/>💡 <b>Tip:</b> Use strong passwords for production deployments. <a href='https://dev.mysql.com/doc/' target='_blank'>View MySQL Documentation</a>",
       "env": [
         {
           "name": "N8N_DOMAIN",
@@ -180,22 +181,26 @@
         {
           "name": "N8N_SMTP_HOST",
           "label": "SMTP Host",
-          "description": "SMTP server hostname (optional)"
+          "description": "SMTP server hostname (optional)",
+          "default": ""
         },
         {
           "name": "N8N_SMTP_PORT",
           "label": "SMTP Port",
-          "description": "SMTP server port (optional)"
+          "description": "SMTP server port (optional)",
+          "default": ""
         },
         {
           "name": "N8N_SMTP_USER",
           "label": "SMTP Username",
-          "description": "SMTP username (optional)"
+          "description": "SMTP username (optional)",
+          "default": ""
         },
         {
           "name": "N8N_SMTP_SENDER",
           "label": "SMTP Sender",
-          "description": "SMTP sender email address (optional)"
+          "description": "SMTP sender email address (optional)",
+          "default": ""
         }
       ],
       "maintainer": "https://github.com/liamdmcgarrigle"
