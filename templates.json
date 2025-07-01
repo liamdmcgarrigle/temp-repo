@@ -5,7 +5,7 @@
       "id": 1,
       "type": 2,
       "name": "nginx-stack",
-      "title": "Nginx Stack Test",
+      "title": "Nginx Stack Testtttt",
       "description": "Simple nginx stack for testing compose deployment",
       "logo": "https://www.nginx.com/wp-content/uploads/2018/08/NGINX-logo-rgb-large.png",
       "categories": ["webserver"],
