@@ -5,8 +5,8 @@
       "id": 1,
       "type": 2,
       "name": "n8n-stack",
-      "title": "n8n Testtttt",
-      "description": "Simple nginx stack for testing compose deployment",
+      "title": "n8n template",
+      "description": "Simple n8n stack for testing compose deployment",
       "logo": "https://www.nginx.com/wp-content/uploads/2018/08/NGINX-logo-rgb-large.png",
       "categories": [
         "webserver"
