@@ -1,30 +1,31 @@
-{
-  "version": "2",
-  "templates": [
-    {
-      "type": 2,
-      "title": "Simple n8n With Postgres",
-      "description": "complete template for getting up and running with a basic n8n template",
-      "note": "This template requires external secrets to be created before deployment: n8n_db_password, n8n_smtp_password, n8n_encryption_key, n8n_user_management_jwt_secret. Also requires 'proxy' external network for Traefik integration.",
-      "categories": ["automation", "workflow", "productivity"],
-      "platform": "linux",
-      "logo": "https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png",
-      "repository": {
-        "url": "https://github.com/liamdmcgarrigle/temp-repo",
-        "stackfile": "n8n-stack.yaml"
+[
+  {
+    "type": 2,
+    "title": "Simple n8n With Postgres",
+    "description": "complete template for getting up and running with a basic n8n template",
+    "note": "This template requires external secrets to be created before deployment: n8n_db_password, n8n_smtp_password, n8n_encryption_key, n8n_user_management_jwt_secret. Also requires 'proxy' external network for Traefik integration.",
+    "categories": [
+      "automation",
+      "workflow",
+      "productivity"
+    ],
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png",
+    "repository": {
+      "url": "https://github.com/liamdmcgarrigle/temp-repo",
+      "stackfile": "n8n-stack.yaml"
+    },
+    "env": [
+      {
+        "name": "N8N_DOMAIN",
+        "label": "N8N Domain",
+        "description": "The domain where n8n will be accessible (required for Traefik routing)"
       },
-      "env": [
-        {
-          "name": "N8N_DOMAIN",
-          "label": "N8N Domain",
-          "description": "The domain where n8n will be accessible (required for Traefik routing)"
-        },
-        {
-          "name": "ROUTE_NAME",
-          "label": "Traefik Route Name",
-          "description": "Unique route name for Traefik (e.g., n8n-prod)"
-        }
-      ]
-    }
-  ]
-}
+      {
+        "name": "ROUTE_NAME",
+        "label": "Traefik Route Name",
+        "description": "Unique route name for Traefik (e.g., n8n-prod)"
+      }
+    ]
+  }
+]
