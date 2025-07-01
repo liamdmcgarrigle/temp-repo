@@ -25,6 +25,18 @@
           "description": "Unique route name for Traefik (e.g., n8n-prod)"
         }
       ]
+    },
+    {
+      "type": 2,
+      "title": "Simple Nginx Test",
+      "description": "Simple nginx test to verify template loading",
+      "categories": ["webserver"],
+      "platform": "linux",
+      "logo": "https://www.nginx.com/wp-content/uploads/2018/08/NGINX-logo-rgb-large.png",
+      "repository": {
+        "url": "https://github.com/liamdmcgarrigle/portainer-test-templates",
+        "stackfile": "simple-nginx.yml"
+      }
     }
   ]
 }
