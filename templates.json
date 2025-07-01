@@ -11,7 +11,7 @@
       "logo": "https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png",
       "repository": {
         "url": "https://github.com/liamdmcgarrigle/temp-repo",
-        "stackfile": "n8n-stack.yaml"
+        "stackfile": "stacks/n8n-stack.yaml"
       },
       "env": [
         {
@@ -35,7 +35,7 @@
       "logo": "https://www.nginx.com/wp-content/uploads/2018/08/NGINX-logo-rgb-large.png",
       "repository": {
         "url": "https://github.com/liamdmcgarrigle/test-repo",
-        "stackfile": "./simple-nginx.yml"
+        "stackfile": "stacks/simple-nginx.yml"
       }
     }
   ]
