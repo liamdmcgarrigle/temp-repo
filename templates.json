@@ -34,7 +34,7 @@
       "platform": "linux",
       "logo": "https://www.nginx.com/wp-content/uploads/2018/08/NGINX-logo-rgb-large.png",
       "repository": {
-        "url": "https://github.com/liamdmcgarrigle/portainer-test-templates",
+        "url": "https://github.com/liamdmcgarrigle/test-repo",
         "stackfile": "simple-nginx.yml"
       }
     }
