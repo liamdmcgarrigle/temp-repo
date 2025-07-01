@@ -16,7 +16,7 @@ services:
     secrets:
       - n8n_db_password
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -h localhost -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
+      test: ['CMD-SHELL', 'pg_isready -h localhost -U ${POSTGRES_USER:-postgres} -d n8n_postgres']
       interval: 5s
       timeout: 5s
       retries: 10
