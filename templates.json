@@ -3,10 +3,15 @@
   "templates": [
     {
       "type": 2,
+      "id": 1,
       "title": "Simple n8n With Postgres",
       "description": "complete template for getting up and running with a basic n8n template",
       "note": "This template requires external secrets to be created before deployment: n8n_db_password, n8n_smtp_password, n8n_encryption_key, n8n_user_management_jwt_secret. Also requires 'proxy' external network for Traefik integration.",
-      "categories": ["automation", "workflow", "productivity"],
+      "categories": [
+        "automation",
+        "workflow",
+        "productivity"
+      ],
       "platform": "linux",
       "logo": "https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png",
       "repository": {
@@ -28,9 +33,12 @@
     },
     {
       "type": 2,
+      "id":2,
       "title": "Simple Nginx Test",
       "description": "Simple nginx test to verify template loading",
-      "categories": ["webserver"],
+      "categories": [
+        "webserver"
+      ],
       "platform": "linux",
       "logo": "https://www.nginx.com/wp-content/uploads/2018/08/NGINX-logo-rgb-large.png",
       "repository": {
