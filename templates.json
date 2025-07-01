@@ -4,11 +4,13 @@
     {
       "id": 1,
       "type": 2,
-      "name": "nginx-stack",
-      "title": "Nginx Stack Testtttt",
+      "name": "n8n-stack",
+      "title": "n8n Testtttt",
       "description": "Simple nginx stack for testing compose deployment",
       "logo": "https://www.nginx.com/wp-content/uploads/2018/08/NGINX-logo-rgb-large.png",
-      "categories": ["webserver"],
+      "categories": [
+        "webserver"
+      ],
       "platform": "linux",
       "repository": {
         "url": "https://github.com/liamdmcgarrigle/temp-repo",
@@ -16,10 +18,184 @@
       },
       "env": [
         {
-          "name": "NGINX_PORT",
-          "label": "Nginx Port",
-          "default": "8080",
-          "preset": false
+          "name": "N8N_DOMAIN",
+          "label": "N8N Domain",
+          "description": "The domain where n8n will be accessible (required for Traefik routing)"
+        },
+        {
+          "name": "ROUTE_NAME",
+          "label": "Traefik Route Name",
+          "description": "Unique route name for Traefik (e.g., n8n-prod)"
+        },
+        {
+          "name": "N8N_VERSION",
+          "label": "N8N Version",
+          "description": "Docker image tag for n8n",
+          "default": "latest"
+        },
+        {
+          "name": "POSTGRES_USER",
+          "label": "PostgreSQL User",
+          "description": "Username for PostgreSQL database",
+          "default": "postgres"
+        },
+        {
+          "name": "GENERIC_TIMEZONE",
+          "label": "Timezone",
+          "description": "Timezone for the application",
+          "default": "America/New_York"
+        },
+        {
+          "name": "N8N_DIAGNOSTICS_ENABLED",
+          "label": "Enable Diagnostics",
+          "description": "Enable n8n diagnostics",
+          "select": [
+            {
+              "text": "Disabled",
+              "value": "false",
+              "default": true
+            },
+            {
+              "text": "Enabled",
+              "value": "true"
+            }
+          ]
+        },
+        {
+          "name": "N8N_TEMPLATES_ENABLED",
+          "label": "Enable Templates",
+          "description": "Enable n8n workflow templates",
+          "select": [
+            {
+              "text": "Enabled",
+              "value": "true",
+              "default": true
+            },
+            {
+              "text": "Disabled",
+              "value": "false"
+            }
+          ]
+        },
+        {
+          "name": "N8N_PAYLOAD_SIZE_MAX",
+          "label": "Max Payload Size (MiB)",
+          "description": "Maximum payload size in MiB",
+          "default": "16"
+        },
+        {
+          "name": "N8N_FORMDATA_FILE_SIZE_MAX",
+          "label": "Max Form File Size (MiB)",
+          "description": "Maximum form data file size in MiB",
+          "default": "200"
+        },
+        {
+          "name": "EXECUTIONS_DATA_SAVE_ON_ERROR",
+          "label": "Save Executions on Error",
+          "description": "Whether to save execution data on error",
+          "select": [
+            {
+              "text": "All",
+              "value": "all",
+              "default": true
+            },
+            {
+              "text": "None",
+              "value": "none"
+            }
+          ]
+        },
+        {
+          "name": "EXECUTIONS_DATA_SAVE_ON_SUCCESS",
+          "label": "Save Executions on Success",
+          "description": "Whether to save execution data on success",
+          "select": [
+            {
+              "text": "All",
+              "value": "all",
+              "default": true
+            },
+            {
+              "text": "None",
+              "value": "none"
+            }
+          ]
+        },
+        {
+          "name": "EXECUTIONS_DATA_MAX_AGE",
+          "label": "Max Execution Data Age (hours)",
+          "description": "Maximum age for execution data in hours",
+          "default": "336"
+        },
+        {
+          "name": "EXECUTIONS_DATA_PRUNE_MAX_COUNT",
+          "label": "Max Execution Count",
+          "description": "Maximum number of executions to keep (0 = no limit)",
+          "default": "10000"
+        },
+        {
+          "name": "DB_POSTGRESDB_POOL_SIZE",
+          "label": "Database Pool Size",
+          "description": "PostgreSQL connection pool size",
+          "default": "2"
+        },
+        {
+          "name": "N8N_CONCURRENCY_PRODUCTION_LIMIT",
+          "label": "Production Concurrency Limit",
+          "description": "Maximum concurrent workflow executions (-1 = no limit)",
+          "default": "-1"
+        },
+        {
+          "name": "N8N_PUBLIC_API_DISABLED",
+          "label": "Disable Public API",
+          "description": "Whether to disable the public API",
+          "select": [
+            {
+              "text": "Enabled",
+              "value": "false",
+              "default": true
+            },
+            {
+              "text": "Disabled",
+              "value": "true"
+            }
+          ]
+        },
+        {
+          "name": "N8N_DEFAULT_BINARY_DATA_MODE",
+          "label": "Binary Data Mode",
+          "description": "Default binary data storage mode",
+          "select": [
+            {
+              "text": "Default",
+              "value": "default",
+              "default": true
+            },
+            {
+              "text": "Filesystem",
+              "value": "filesystem"
+            }
+          ]
+        },
+        {
+          "name": "N8N_SMTP_HOST",
+          "label": "SMTP Host",
+          "description": "SMTP server hostname (optional)"
+        },
+        {
+          "name": "N8N_SMTP_PORT",
+          "label": "SMTP Port",
+          "description": "SMTP server port (optional)"
+        },
+        {
+          "name": "N8N_SMTP_USER",
+          "label": "SMTP Username",
+          "description": "SMTP username (optional)"
+        },
+        {
+          "name": "N8N_SMTP_SENDER",
+          "label": "SMTP Sender",
+          "description": "SMTP sender email address (optional)"
         }
       ],
       "maintainer": "https://github.com/liamdmcgarrigle"
