@@ -13,7 +13,7 @@
       ],
       "platform": "linux",
       "repository": {
-        "url": "https://github.com/liamdmcgarrigle/temp-repo",
+        "url": "https://github.com/liamdmcgarrigle/n8n-auto-install/tree/portaefik-rewrite",
         "stackfile": "n8n-stack.yaml"
       },
       "note":"**Configuration Guide:**<br/><br/>📋 <b>Required Settings:</b> You must provide a root password below.<br/>🔧 <b>Optional Settings:</b> Database name and user credentials can be customized or left as defaults.<br/><br/>💡 <b>Tip:</b> Use strong passwords for production deployments. <a href='https://dev.mysql.com/doc/' target='_blank'>View MySQL Documentation</a>",
