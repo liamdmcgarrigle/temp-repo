@@ -10,9 +10,8 @@
       "platform": "linux",
       "logo": "https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png",
       "repository": {
-        "url": "https://github.com/liamdmcgarrigle/n8n-auto-install",
-        "stackfile": "n8n-stack.yaml",
-        "branch": "portaefik-rewrite"
+        "url": "https://github.com/liamdmcgarrigle/temp-repo",
+        "stackfile": "n8n-stack.yaml"
       },
       "env": [
         {
