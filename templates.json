@@ -1,50 +1,28 @@
 {
-  "version": "2",
+  "version": "3",
   "templates": [
     {
-      "type": 2,
       "id": 1,
-      "title": "Simple n8n With Postgres",
-      "description": "complete template for getting up and running with a basic n8n template",
-      "note": "This template requires external secrets to be created before deployment: n8n_db_password, n8n_smtp_password, n8n_encryption_key, n8n_user_management_jwt_secret. Also requires 'proxy' external network for Traefik integration.",
-      "categories": [
-        "automation",
-        "workflow",
-        "productivity"
-      ],
+      "type": 2,
+      "name": "nginx-stack",
+      "title": "Nginx Stack Test",
+      "description": "Simple nginx stack for testing compose deployment",
+      "logo": "https://www.nginx.com/wp-content/uploads/2018/08/NGINX-logo-rgb-large.png",
+      "categories": ["webserver"],
       "platform": "linux",
-      "logo": "https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png",
       "repository": {
-        "url": "https://github.com/liamdmcgarrigle/temp-repo",
-        "stackfile": "stacks/n8n-stack.yaml"
+        "url": "https://github.com/liamdmcgarrigle/portainer-test-templates",
+        "stackfile": "nginx-stack.yml"
       },
       "env": [
         {
-          "name": "N8N_DOMAIN",
-          "label": "N8N Domain",
-          "description": "The domain where n8n will be accessible (required for Traefik routing)"
-        },
-        {
-          "name": "ROUTE_NAME",
-          "label": "Traefik Route Name",
-          "description": "Unique route name for Traefik (e.g., n8n-prod)"
+          "name": "NGINX_PORT",
+          "label": "Nginx Port",
+          "default": "8080",
+          "preset": false
         }
-      ]
-    },
-    {
-      "type": 2,
-      "id":2,
-      "title": "Simple Nginx Test",
-      "description": "Simple nginx test to verify template loading",
-      "categories": [
-        "webserver"
       ],
-      "platform": "linux",
-      "logo": "https://www.nginx.com/wp-content/uploads/2018/08/NGINX-logo-rgb-large.png",
-      "repository": {
-        "url": "https://github.com/liamdmcgarrigle/test-repo",
-        "stackfile": "stacks/simple-nginx.yml"
-      }
+      "maintainer": "https://github.com/liamdmcgarrigle"
     }
   ]
 }
