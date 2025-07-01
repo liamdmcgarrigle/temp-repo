@@ -20,7 +20,7 @@
       "env": [
         {
           "name": "N8N_DOMAIN",
-          "label": "N8N Domain",
+          "label": "N8N Domain WITHOUT http or https",
           "description": "The domain where n8n will be accessible (required for Traefik routing)"
         },
         {
@@ -142,14 +142,13 @@
         },
         {
           "name": "N8N_CONCURRENCY_PRODUCTION_LIMIT",
-          "label": "Production Concurrency Limit",
+          "label": "Concurrency Limit (-1 = no limit)",
           "description": "Maximum concurrent workflow executions (-1 = no limit)",
           "default": "-1"
         },
         {
           "name": "N8N_PUBLIC_API_DISABLED",
-          "label": "Disable Public API",
-          "description": "Whether to disable the public API",
+          "label": "n8n Public API",
           "select": [
             {
               "text": "Enabled",
@@ -182,25 +181,25 @@
           "name": "N8N_SMTP_HOST",
           "label": "SMTP Host",
           "description": "SMTP server hostname (optional)",
-          "default": ""
+          "default": " "
         },
         {
           "name": "N8N_SMTP_PORT",
           "label": "SMTP Port",
           "description": "SMTP server port (optional)",
-          "default": ""
+          "default": " "
         },
         {
           "name": "N8N_SMTP_USER",
           "label": "SMTP Username",
           "description": "SMTP username (optional)",
-          "default": ""
+          "default": " "
         },
         {
           "name": "N8N_SMTP_SENDER",
           "label": "SMTP Sender",
           "description": "SMTP sender email address (optional)",
-          "default": ""
+          "default": " "
         }
       ],
       "maintainer": "https://github.com/liamdmcgarrigle"
