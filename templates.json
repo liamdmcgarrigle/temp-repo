@@ -11,8 +11,8 @@
       "categories": ["webserver"],
       "platform": "linux",
       "repository": {
-        "url": "https://github.com/liamdmcgarrigle/portainer-test-templates",
-        "stackfile": "nginx-stack.yml"
+        "url": "https://github.com/liamdmcgarrigle/temp-repo",
+        "stackfile": "n8n-stack.yaml"
       },
       "env": [
         {
