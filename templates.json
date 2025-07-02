@@ -13,10 +13,10 @@
       ],
       "platform": "linux",
       "repository": {
-        "url": "https://github.com/liamdmcgarrigle/n8n-auto-install/tree/portaefik-rewrite",
+        "url": "https://github.com/liamdmcgarrigle/temp-repo",
         "stackfile": "n8n-stack.yaml"
       },
-      "note":"**Configuration Guide:**<br/><br/>📋 <b>Required Settings:</b> You must provide a root password below.<br/>🔧 <b>Optional Settings:</b> Database name and user credentials can be customized or left as defaults.<br/><br/>💡 <b>Tip:</b> Use strong passwords for production deployments. <a href='https://dev.mysql.com/doc/' target='_blank'>View MySQL Documentation</a>",
+      "note":"<b>IMPORTANT:</b> You must add docker secrets before deploying this stack!.<br/> <a href='/#!/1/docker/secrets' target='_blank'>Open secret config page in new tab</a> <br> You must add all of these secrets: <br> <ul><li>n8n_db_password</li><li>n8n_smtp_password</li><li>n8n_encryption_key</li><li>n8n_user_management_jwt_secret</li></ul> <br> If you are not using email/SMTP, then add n8n_smtp_password with a placeholder secret as it's still required. For the rest, generate LONG, SECURE, and UNIQUE passwords for each. <br><br> Other than the secrets, the only other required fields below is the first two: the n8n domain and route name. The rest of the configuration can safely be kept default.",
       "env": [
         {
           "name": "N8N_DOMAIN",
