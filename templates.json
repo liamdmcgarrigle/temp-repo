@@ -5,9 +5,9 @@
       "id": 1,
       "type": 2,
       "name": "n8n-stack",
-      "title": "n8n template",
-      "description": "Simple n8n stack for testing compose deployment",
-      "logo": "https://www.nginx.com/wp-content/uploads/2018/08/NGINX-logo-rgb-large.png",
+      "title": "n8n Swarm Template",
+      "description": "Simple n8n swarm stack for deploying n8n with docker secrets",
+      "logo": "https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png",
       "categories": [
         "webserver"
       ],
@@ -16,7 +16,7 @@
         "url": "https://github.com/liamdmcgarrigle/temp-repo",
         "stackfile": "n8n-stack.yaml"
       },
-      "note":"<b>IMPORTANT:</b> You must add docker secrets before deploying this stack!.<br/> <a href='/#!/1/docker/secrets' target='_blank'>Open secret config page in new tab</a> <br> You must add all of these secrets: <br> <ul><li>n8n_db_password</li><li>n8n_smtp_password</li><li>n8n_encryption_key</li><li>n8n_user_management_jwt_secret</li></ul> <br> If you are not using email/SMTP, then add n8n_smtp_password with a placeholder secret as it's still required. For the rest, generate LONG, SECURE, and UNIQUE passwords for each. <br><br> Other than the secrets, the only other required fields below is the first two: the n8n domain and route name. The rest of the configuration can safely be kept default.",
+      "note": "<b>IMPORTANT:</b> You must add docker secrets before deploying this stack!.<br/> <a href='/#!/1/docker/secrets' target='_blank'>Open secret config page in new tab</a> <br> You must add all of these secrets: <br> <ul><li>n8n_db_password</li><li>n8n_smtp_password</li><li>n8n_encryption_key</li><li>n8n_user_management_jwt_secret</li></ul> <br> If you are not using email/SMTP, then add n8n_smtp_password with a placeholder secret as it's still required. For the rest, generate LONG, SECURE, and UNIQUE passwords for each. <br><br> Other than the secrets, the only other required fields below is the first two: the n8n domain and route name. The rest of the configuration can safely be kept default.",
       "env": [
         {
           "name": "N8N_DOMAIN",
@@ -24,7 +24,7 @@
           "description": "The domain where n8n will be accessible (required for Traefik routing)"
         },
         {
-          "name": "ROUTE_NAME",
+          "name": "N8N_ROUTE_NAME",
           "label": "Traefik Route Name",
           "description": "Unique route name for Traefik (e.g., n8n-prod)"
         },
@@ -200,6 +200,221 @@
           "label": "SMTP Sender",
           "description": "SMTP sender email address (optional)",
           "default": " "
+        },
+        {
+          "id": 2,
+          "type": 2,
+          "name": "n8n-qdrant-stack",
+          "title": "n8n * Qdrant Swarm Template",
+          "description": "n8n and Qdrant bundled together for use with docker secrets",
+          "logo": "https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png",
+          "categories": [
+            "webserver"
+          ],
+          "platform": "linux",
+          "repository": {
+            "url": "https://github.com/liamdmcgarrigle/temp-repo",
+            "stackfile": "n8n-qdrant-stack.yaml"
+          },
+          "note": "<b>IMPORTANT:</b> You must add docker secrets before deploying this stack!.<br/> <a href='/#!/1/docker/secrets' target='_blank'>Open secret config page in new tab</a> <br> You must add all of these secrets: <br> <ul><li>n8n_db_password</li><li>n8n_smtp_password</li><li>n8n_encryption_key</li><li>n8n_user_management_jwt_secret</li><li>qdrant_api_key</li></ul> <br> If you are not using email/SMTP, then add n8n_smtp_password with a placeholder secret as it's still required. For the rest, generate LONG, SECURE, and UNIQUE passwords for each. You can use the command <code>openssl rand -base64 32</code> to generate a secure key. <br><br> Other than the secrets, the only other required fields below is the first four: the domain and route names for n8n and qdrant. The rest of the configuration can safely be kept default.",
+          "env": [
+            {
+              "name": "N8N_DOMAIN",
+              "label": "N8N Domain WITHOUT http or https",
+              "description": "The domain where n8n will be accessible (required for Traefik routing)"
+            },
+            {
+              "name": "QDRANT_DOMAIN",
+              "label": "Qdrant Domain WITHOUT http or https",
+              "description": "The domain where qdrant will be accessible (required for Traefik routing)"
+            },
+            {
+              "name": "N8N_ROUTE_NAME",
+              "label": "Traefik n8n Route Name",
+              "description": "Unique route name for Traefik (e.g., n8n-prod)",
+              "default": "n8n"
+            },
+            {
+              "name": "QDRANT_ROUTE_NAME",
+              "label": "Traefik Qdrant Route Name",
+              "description": "Unique route name for Traefik (e.g., qdrant-prod)",
+              "default": "qdrant"
+            },
+            {
+              "name": "N8N_VERSION",
+              "label": "N8N Version",
+              "description": "Docker image tag for n8n",
+              "default": "latest"
+            },
+            {
+              "name": "POSTGRES_USER",
+              "label": "PostgreSQL User",
+              "description": "Username for PostgreSQL database",
+              "default": "postgres"
+            },
+            {
+              "name": "GENERIC_TIMEZONE",
+              "label": "Timezone",
+              "description": "Timezone for the application",
+              "default": "America/New_York"
+            },
+            {
+              "name": "N8N_DIAGNOSTICS_ENABLED",
+              "label": "Enable Diagnostics",
+              "description": "Enable n8n diagnostics",
+              "select": [
+                {
+                  "text": "Disabled",
+                  "value": "false",
+                  "default": true
+                },
+                {
+                  "text": "Enabled",
+                  "value": "true"
+                }
+              ]
+            },
+            {
+              "name": "N8N_TEMPLATES_ENABLED",
+              "label": "Enable Templates",
+              "description": "Enable n8n workflow templates",
+              "select": [
+                {
+                  "text": "Enabled",
+                  "value": "true",
+                  "default": true
+                },
+                {
+                  "text": "Disabled",
+                  "value": "false"
+                }
+              ]
+            },
+            {
+              "name": "N8N_PAYLOAD_SIZE_MAX",
+              "label": "Max Payload Size (MiB)",
+              "description": "Maximum payload size in MiB",
+              "default": "16"
+            },
+            {
+              "name": "N8N_FORMDATA_FILE_SIZE_MAX",
+              "label": "Max Form File Size (MiB)",
+              "description": "Maximum form data file size in MiB",
+              "default": "200"
+            },
+            {
+              "name": "EXECUTIONS_DATA_SAVE_ON_ERROR",
+              "label": "Save Executions on Error",
+              "description": "Whether to save execution data on error",
+              "select": [
+                {
+                  "text": "All",
+                  "value": "all",
+                  "default": true
+                },
+                {
+                  "text": "None",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "name": "EXECUTIONS_DATA_SAVE_ON_SUCCESS",
+              "label": "Save Executions on Success",
+              "description": "Whether to save execution data on success",
+              "select": [
+                {
+                  "text": "All",
+                  "value": "all",
+                  "default": true
+                },
+                {
+                  "text": "None",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "name": "EXECUTIONS_DATA_MAX_AGE",
+              "label": "Max Execution Data Age (hours)",
+              "description": "Maximum age for execution data in hours",
+              "default": "336"
+            },
+            {
+              "name": "EXECUTIONS_DATA_PRUNE_MAX_COUNT",
+              "label": "Max Execution Count",
+              "description": "Maximum number of executions to keep (0 = no limit)",
+              "default": "10000"
+            },
+            {
+              "name": "DB_POSTGRESDB_POOL_SIZE",
+              "label": "Database Pool Size",
+              "description": "PostgreSQL connection pool size",
+              "default": "2"
+            },
+            {
+              "name": "N8N_CONCURRENCY_PRODUCTION_LIMIT",
+              "label": "Concurrency Limit (-1 = no limit)",
+              "description": "Maximum concurrent workflow executions (-1 = no limit)",
+              "default": "-1"
+            },
+            {
+              "name": "N8N_PUBLIC_API_DISABLED",
+              "label": "n8n Public API",
+              "select": [
+                {
+                  "text": "Enabled",
+                  "value": "false",
+                  "default": true
+                },
+                {
+                  "text": "Disabled",
+                  "value": "true"
+                }
+              ]
+            },
+            {
+              "name": "N8N_DEFAULT_BINARY_DATA_MODE",
+              "label": "Binary Data Mode",
+              "description": "Default binary data storage mode",
+              "select": [
+                {
+                  "text": "Default",
+                  "value": "default",
+                  "default": true
+                },
+                {
+                  "text": "Filesystem",
+                  "value": "filesystem"
+                }
+              ]
+            },
+            {
+              "name": "N8N_SMTP_HOST",
+              "label": "SMTP Host",
+              "description": "SMTP server hostname (optional)",
+              "default": " "
+            },
+            {
+              "name": "N8N_SMTP_PORT",
+              "label": "SMTP Port",
+              "description": "SMTP server port (optional)",
+              "default": " "
+            },
+            {
+              "name": "N8N_SMTP_USER",
+              "label": "SMTP Username",
+              "description": "SMTP username (optional)",
+              "default": " "
+            },
+            {
+              "name": "N8N_SMTP_SENDER",
+              "label": "SMTP Sender",
+              "description": "SMTP sender email address (optional)",
+              "default": " "
+            }
+          ],
+          "maintainer": "https://github.com/liamdmcgarrigle"
         }
       ],
       "maintainer": "https://github.com/liamdmcgarrigle"
