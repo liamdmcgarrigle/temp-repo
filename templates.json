@@ -208,7 +208,7 @@
       "id": 2,
       "type": 2,
       "name": "n8n-qdrant-stack",
-      "title": "n8n * Qdrant Swarm Template",
+      "title": "n8n & Qdrant Swarm Template",
       "description": "n8n and Qdrant bundled together for use with docker secrets",
       "logo": "https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png",
       "categories": [
