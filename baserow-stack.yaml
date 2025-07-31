@@ -3,6 +3,7 @@ services:
     image: baserow/baserow:${BASEROW_VERSION:-latest}
     environment:
       - BASEROW_PUBLIC_URL=https://${BASEROW_DOMAIN}
+      - BASEROW_TRIGGER_SYNC_TEMPLATES_AFTER_MIGRATION=false
     hostname: baserow
     restart: unless-stopped
     ports:
