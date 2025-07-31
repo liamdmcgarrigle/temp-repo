@@ -434,7 +434,7 @@
 	    "url": "https://github.com/liamdmcgarrigle/temp-repo",
 	    "stackfile": "baserow-stack.yaml"
 	  },
-	  "note": "<b>IMPORTANT:</b> This template deploys Baserow - a visual database tool that can easily integrate with n8n. You'll need to specify the domain where Baserow will be accessible and a unique route name for Traefik. Ensure the DNS records are added before deploying",
+	  "note": "<b>IMPORTANT:</b> This template deploys Baserow - a visual database tool that can easily integrate with n8n. You'll need to specify the domain where Baserow will be accessible and a unique route name for Traefik. Ensure the DNS records are added before deploying. <br><br>The initial start of this service is rather heavy. Start it for the first time in off peak hours and ensure you have a machine with enough cores.",
 	  "env": [
 	    {
 	      "name": "BASEROW_DOMAIN",
