@@ -1,0 +1,26 @@
+services:
+  baserow:
+    image: baserow/baserow:${BASEROW_VERSION:-latest}
+    environment:
+      - BASEROW_PUBLIC_URL=https://${BASEROW_DOMAIN}
+    hostname: baserow
+    restart: unless-stopped
+    ports:
+      - 3009:80
+    volumes:
+      - baserow_data:/baserow/data
+    networks:
+      - proxy
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.${BASEROW_ROUTE_NAME:?BASEROW_ROUTE_NAME is required}.rule=Host(`${BASEROW_DOMAIN:?BASEROW_DOMAIN is required}`)"
+        - "traefik.http.routers.${BASEROW_ROUTE_NAME}.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.${BASEROW_ROUTE_NAME}.entrypoints=websecure"
+        - "traefik.http.services.${BASEROW_ROUTE_NAME}.loadbalancer.server.port=80"
+
+volumes:
+  baserow_data:
+networks:
+  proxy:
+    external: true

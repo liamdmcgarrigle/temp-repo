@@ -418,6 +418,43 @@
         }
       ],
       "maintainer": "https://github.com/liamdmcgarrigle"
-    }
+    },
+    {
+	  "id": 3,
+	  "type": 2,
+	  "name": "baserow-stack",
+	  "title": "Baserow Swarm Template",
+	  "description": "Visual postgres database app that is free and easy to integrate with n8n",
+	  "logo": "https://baserow.io/img/baserow-logo.svg",
+	  "categories": [
+	    "database"
+	  ],
+	  "platform": "linux",
+	  "repository": {
+	    "url": "https://github.com/liamdmcgarrigle/temp-repo",
+	    "stackfile": "baserow-stack.yaml"
+	  },
+	  "note": "<b>IMPORTANT:</b> This template deploys Baserow - a visual database tool that can easily integrate with n8n. You'll need to specify the domain where Baserow will be accessible and a unique route name for Traefik. Ensure the DNS records are added before deploying",
+	  "env": [
+	    {
+	      "name": "BASEROW_DOMAIN",
+	      "label": "Baserow Domain WITHOUT http or https",
+	      "description": "The domain where Baserow will be accessible (required for Traefik routing)"
+	    },
+	    {
+	      "name": "BASEROW_ROUTE_NAME",
+	      "label": "Traefik Route Name",
+	      "description": "Unique route name for Traefik (e.g., baserow-prod)",
+	      "default": "baserow"
+	    },
+	    {
+	      "name": "BASEROW_VERSION",
+	      "label": "Baserow Version",
+	      "description": "Docker image tag for Baserow",
+	      "default": "latest"
+	    }
+	  ],
+	  "maintainer": "https://github.com/liamdmcgarrigle"
+	}
   ]
 }
